@@ -1,7 +1,8 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
-import MyComp from "./components/MyComp.vue";
+import MyComp from "./components/MyComp.vue"
+
 </script>
 
 <template>

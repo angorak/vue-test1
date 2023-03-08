@@ -4,16 +4,20 @@
     {{ ok ? 'YES' : 'NO' }}
   </p>
   <button @click="toggleButton">Toggle</button>
-  <p>
-    {{ Math.PI }}
+  <p v-if="ok">
+    {{ Math.PI.toPrecision(rangeVal) }}
   </p>
+  <ul>
+    <li v-for="i in [1,2,3]">{{rangeVal}}</li>
+  </ul>
   <div>
-    <input type="range" min="0" max="50" v-model="rangeVal">
+    <input type="range"  min="1" max="30" v-model="rangeVal">
     {{ rangeVal }}
   </div>
 </template>
 
 <script>
+
 export default {
   name: "MyComp",
   data() {
@@ -24,18 +28,19 @@ export default {
         id: 'id-div'
       },
       ok: true,
-      rangeVal: 0,
+      rangeVal: 1,
     }
   },
   methods: {
     toggleButton() {
       this.ok = !this.ok
-    },
+   },
     getDate() {
       return new Date()
     }
   }
 }
+
 </script>
 
 <style scoped>
