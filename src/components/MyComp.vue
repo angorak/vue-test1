@@ -1,4 +1,5 @@
 <template>
+  <input type="text" v-model="inputVal1">
   <div v-bind="dval">Ahoj</div>
   <p>
     {{ ok ? 'YES' : 'NO' }}
@@ -14,6 +15,9 @@
     <input type="range"  min="1" max="30" v-model="rangeVal">
     {{ rangeVal }}
   </div>
+  <p>
+    {{ suffixText }}
+  </p>
 </template>
 
 <script>
@@ -22,6 +26,7 @@ export default {
   name: "MyComp",
   data() {
     return {
+      inputVal1: '',
       tval: 'dalsi text',
       dval: {
         name: 'nejaky-div',
@@ -37,6 +42,11 @@ export default {
    },
     getDate() {
       return new Date()
+    }
+  },
+  computed: {
+    suffixText() {
+      return this.inputVal1 + ' some suffix'
     }
   }
 }
